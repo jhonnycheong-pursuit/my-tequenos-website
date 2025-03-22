@@ -30,6 +30,37 @@ export default function Order() {
     deliveryInstructions: '',
   });
 
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+  });
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    
+    // Clear error when user starts typing
+    if (errors[name as keyof typeof errors]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
+
+    // Validate email as user types
+    if (name === 'email') {
+      if (!value) {
+        setErrors(prev => ({ ...prev, email: 'Email is required' }));
+      } else if (!validateEmail(value)) {
+        setErrors(prev => ({ ...prev, email: 'Please enter a valid email address' }));
+      }
+    }
+  };
+
   const addToCart = (item: { name: string; price: number }) => {
     setCart(prevCart => {
       const existingItem = prevCart.find(cartItem => cartItem.name === item.name);
@@ -63,9 +94,25 @@ export default function Order() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the order to your backend
+    
+    // Validate all fields
+    const newErrors = {
+      name: !formData.name ? 'Name is required' : '',
+      email: !formData.email ? 'Email is required' : (!validateEmail(formData.email) ? 'Please enter a valid email address' : ''),
+      phone: !formData.phone ? 'Phone is required' : '',
+      address: !formData.address ? 'Address is required' : ''
+    };
+
+    setErrors(newErrors);
+
+    // Check if there are any errors
+    if (Object.values(newErrors).some(error => error !== '')) {
+      return;
+    }
+
+    // If no errors, proceed with order submission
     console.log('Order submitted:', { cart, formData });
-    alert('Order submitted successfully!');
+    alert('Order placed successfully!');
     setCart([]);
     setFormData({
       name: '',
@@ -160,44 +207,68 @@ export default function Order() {
               <h2 className="text-2xl font-bold text-amber-800 mb-4">Delivery Information</h2>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    Name
+                  </label>
                   <input
                     type="text"
-                    required
+                    id="name"
+                    name="name"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+                    onChange={handleInputChange}
+                    className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm ${
+                      errors.name ? 'border-red-500' : ''
+                    }`}
                   />
+                  {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Email</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    Email
+                  </label>
                   <input
                     type="email"
-                    required
+                    id="email"
+                    name="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+                    onChange={handleInputChange}
+                    className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm ${
+                      errors.email ? 'border-red-500' : ''
+                    }`}
                   />
+                  {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Phone</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                    Phone
+                  </label>
                   <input
                     type="tel"
-                    required
+                    id="phone"
+                    name="phone"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
+                    onChange={handleInputChange}
+                    className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm ${
+                      errors.phone ? 'border-red-500' : ''
+                    }`}
                   />
+                  {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Delivery Address</label>
-                  <textarea
-                    required
+                  <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+                    Delivery Address
+                  </label>
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
                     value={formData.address}
-                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500"
-                    rows={3}
+                    onChange={handleInputChange}
+                    className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm ${
+                      errors.address ? 'border-red-500' : ''
+                    }`}
                   />
+                  {errors.address && <p className="mt-1 text-sm text-red-600">{errors.address}</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Delivery Instructions</label>

@@ -49,9 +49,11 @@ export default function FullMenu() {
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2">{item.name}</h3>
                     <p className="text-gray-600 mb-4">{item.description}</p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-xl font-bold text-red-600">{item.price}</span>
-                      <Button className="bg-red-600 hover:bg-red-700">Add to Order</Button>
+                    <div className="flex justify-between items-center mt-4">
+                      <span className="text-2xl font-bold text-red-600">{item.price}</span>
+                      <Link to="/order">
+                        <Button className="bg-red-600 hover:bg-red-700">Add to Order</Button>
+                      </Link>
                     </div>
                   </div>
                 </div>
