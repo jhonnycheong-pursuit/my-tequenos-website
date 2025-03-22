@@ -1,7 +1,7 @@
 {
   "name": "my-tequenos-website",
   "version": "0.1.0",
-  "homepage": "https://YOUR_USERNAME.github.io/my-tequenos-website",
+  "homepage": "https://jhonn.github.io/my-tequenos-website",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
