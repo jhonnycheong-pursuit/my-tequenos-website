@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/my-tequenos-website/static/css/main.4bb59a18.css",
+    "main.js": "/my-tequenos-website/static/js/main.32011f5c.js",
+    "static/js/453.9a0dc34c.chunk.js": "/my-tequenos-website/static/js/453.9a0dc34c.chunk.js",
+    "index.html": "/my-tequenos-website/index.html",
+    "main.4bb59a18.css.map": "/my-tequenos-website/static/css/main.4bb59a18.css.map",
+    "main.32011f5c.js.map": "/my-tequenos-website/static/js/main.32011f5c.js.map",
+    "453.9a0dc34c.chunk.js.map": "/my-tequenos-website/static/js/453.9a0dc34c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4bb59a18.css",
+    "static/js/main.32011f5c.js"
+  ]
+}
