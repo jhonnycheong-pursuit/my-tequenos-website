@@ -6,25 +6,25 @@ const menuCategories = [
   {
     name: "Classic Tequeños",
     items: [
-      { name: "Classic Cheese", description: "Our original recipe with gooey cheese", price: "$8.99", image: "/images/classic-cheese.jpeg" },
-      { name: "Ham & Cheese", description: "A perfect blend of savory ham and melted cheese", price: "$9.99", image: "/images/ham-cheese.jpeg" },
-      { name: "Three Cheese Blend", description: "A combination of mozzarella, cheddar, and cream cheese", price: "$10.99", image: "/images/classic-cheese.jpeg" },
+      { name: "Classic Cheese", description: "Our original recipe with gooey cheese", price: "$8.99", image: `${process.env.PUBLIC_URL}/images/classic-cheese.jpeg` },
+      { name: "Ham & Cheese", description: "A perfect blend of savory ham and melted cheese", price: "$9.99", image: `${process.env.PUBLIC_URL}/images/ham-cheese.jpeg` },
+      { name: "Three Cheese Blend", description: "A combination of mozzarella, cheddar, and cream cheese", price: "$10.99", image: `${process.env.PUBLIC_URL}/images/classic-cheese.jpeg` },
     ]
   },
   {
     name: "Sweet Tequeños",
     items: [
-      { name: "Chocolate", description: "A sweet twist on our classic tequeño", price: "$8.99", image: "/images/chocolate.jpeg" },
-      { name: "Nutella & Banana", description: "Creamy Nutella with fresh banana slices", price: "$9.99", image: "/images/chocolate.jpeg" },
-      { name: "Guava & Cheese", description: "Traditional Venezuelan guava paste with cheese", price: "$9.99", image: "/images/classic-cheese.jpeg" },
+      { name: "Chocolate", description: "A sweet twist on our classic tequeño", price: "$8.99", image: `${process.env.PUBLIC_URL}/images/chocolate.jpeg` },
+      { name: "Nutella & Banana", description: "Creamy Nutella with fresh banana slices", price: "$9.99", image: `${process.env.PUBLIC_URL}/images/chocolate.jpeg` },
+      { name: "Guava & Cheese", description: "Traditional Venezuelan guava paste with cheese", price: "$9.99", image: `${process.env.PUBLIC_URL}/images/classic-cheese.jpeg` },
     ]
   },
   {
     name: "Specialty Tequeños",
     items: [
-      { name: "Buffalo Chicken", description: "Spicy buffalo chicken with blue cheese", price: "$10.99", image: "/images/ham-cheese.jpeg" },
-      { name: "Spinach & Artichoke", description: "Creamy spinach and artichoke dip", price: "$9.99", image: "/images/classic-cheese.jpeg" },
-      { name: "BBQ Pulled Pork", description: "Tender pulled pork with BBQ sauce", price: "$11.99", image: "/images/ham-cheese.jpeg" },
+      { name: "Buffalo Chicken", description: "Spicy buffalo chicken with blue cheese", price: "$10.99", image: `${process.env.PUBLIC_URL}/images/ham-cheese.jpeg` },
+      { name: "Spinach & Artichoke", description: "Creamy spinach and artichoke dip", price: "$9.99", image: `${process.env.PUBLIC_URL}/images/classic-cheese.jpeg` },
+      { name: "BBQ Pulled Pork", description: "Tender pulled pork with BBQ sauce", price: "$11.99", image: `${process.env.PUBLIC_URL}/images/ham-cheese.jpeg` },
     ]
   }
 ];

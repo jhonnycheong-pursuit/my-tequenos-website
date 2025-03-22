@@ -7,19 +7,19 @@ const menuItems = [
     name: 'Classic Cheese',
     description: 'Our signature tequeño with premium Venezuelan cheese',
     price: '$12.99',
-    image: '/images/classic-cheese.jpeg'
+    image: `${process.env.PUBLIC_URL}/images/classic-cheese.jpeg`
   },
   {
     name: 'Ham & Cheese',
     description: 'A perfect blend of ham and cheese wrapped in our crispy dough',
     price: '$14.99',
-    image: '/images/ham-cheese.jpeg'
+    image: `${process.env.PUBLIC_URL}/images/ham-cheese.jpeg`
   },
   {
     name: 'Chocolate',
     description: 'Sweet tequeños filled with rich chocolate',
     price: '$13.99',
-    image: '/images/chocolate.jpeg'
+    image: `${process.env.PUBLIC_URL}/images/chocolate.jpeg`
   }
 ];
 

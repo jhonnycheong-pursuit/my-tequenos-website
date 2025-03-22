@@ -10,7 +10,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[600px] flex items-center justify-center">
         <img
-          src="/images/hero-tequenos.jpeg"
+          src={`${process.env.PUBLIC_URL}/images/hero-tequenos.jpeg`}
           alt="Crispy tequeños with melted cheese"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -138,9 +138,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="rounded-lg overflow-hidden shadow-lg max-w-[800px] mx-auto">
               <img 
-                src="/images/map-placeholder.jpeg" 
+                src={`${process.env.PUBLIC_URL}/images/map-placeholder.jpeg`} 
                 alt="Our Location" 
-                className="w-full h-[400px] object-cover" 
+                className="w-full h-[400px] object-cover rounded-lg shadow-lg" 
               />
             </div>
             <div className="space-y-6">
